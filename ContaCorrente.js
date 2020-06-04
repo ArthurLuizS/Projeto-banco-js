@@ -1,13 +1,28 @@
+import { cliente } from "./Cliente.js";
+
 export class contaCorrente{
     agencia;
-    cliente;
+    _cliente;
+    
+    set cliente (novoValor){
+        if (novoValor instanceof cliente){
+            this._cliente = novoValor;
+        }
 
+    }
+
+    get cliente (){
+        return this._cliente;
+    }
 
     //por convenção da comunidade, qualquer variavel ou atributo que tenha um _ como primeiro elemento
     //na sua declaração
     //deve ser tratada como uma variavel ou atributo privado, e nao deverá ser usado fora da classe
     _saldo = 0;
-
+    
+    get saldo(){
+        return this._saldo
+    }
 
     sacar(valor){
         if (this._saldo >= valor){
