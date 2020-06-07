@@ -2,35 +2,16 @@
 
 import {cliente} from "./Cliente.js"
 import {contaCorrente} from "./ContaCorrente.js"
+import { ContaPoupança } from "./ContaPoupanca.js/index.js";
 
 
-const cliente1 = new cliente();
-const cliente2 = new cliente(); 
+const cliente1 = new cliente("Arthur", 1122);
 
-cliente1.nome = "Arthur"
-cliente1.cpf = "001122"
+const contaArthur = new contaCorrente(cliente1, 1411);
+contaArthur.depositar(4000)
+contaArthur.sacar(100)
+console.log(contaArthur)
 
-cliente2.nome = "Rafael"
-cliente2.cpf = "002212"
-
-
-const contaRafa = new contaCorrente() 
-contaRafa.cliente = cliente2   
-contaRafa.agencia = "1232"
-
-//contaRafa.depositar(1000) //metodo depositar na contaRafa
-
-
-
-//console.log(contaRafa)
-
-const contaArthur = new contaCorrente();
-//console.log(`Arthur, ${contaArthur._saldo}`)
-contaArthur.agencia = 1411
-contaArthur.cliente = cliente1
-contaArthur.depositar(20)
-contaArthur.transferir(10, contaRafa)
-//contaRafa.transferir(200, contaArthur)
-//console.log(contaRafa)
-//console.log(contaArthur)
-console.log(contaRafa.cliente)
+const contapoupança = new ContaPoupança(50, cliente1, 1411)
+contapoupança.sacar(10)
+console.log(contapoupança)
