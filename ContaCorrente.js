@@ -1,4 +1,4 @@
-import { cliente } from "./Cliente.js";
+
 import { Conta } from "./Conta.js";
 
 export class contaCorrente extends Conta{
@@ -11,15 +11,10 @@ export class contaCorrente extends Conta{
         
     
     }
+    //Método sobrescrito da classe conta
     sacar(valor){
         let taxa = 1.1;
-        const valorSacado = taxa * valor
-        if (this._saldo >= valorSacado){
-            this._saldo -= valorSacado;
-            return valorSacado;
-        } else{
-            console.log("Valor informado acima do saldo da conta")
-        }
+        return this._sacar(valor, taxa)
     }
 
     
