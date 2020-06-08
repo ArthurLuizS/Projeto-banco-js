@@ -5,5 +5,9 @@ export class ContaPoupança extends Conta{
         super(saldoinicial, cliente, agencia)
 
     }
-    
+     //Método sobrescrito da classe conta
+     sacar(valor){
+         const taxa = 1.02
+         return this._sacar(valor, taxa)
+     }
 }
